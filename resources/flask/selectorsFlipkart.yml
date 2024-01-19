@@ -1,0 +1,19 @@
+name:
+    css: '.B_NuCI'
+    type: Text
+price:
+    css: '._16Jk6d'
+    type: Text
+short_description:
+    css: '._1mXcCf p'
+    type: Text
+images:
+    css: 'img._396cs4'
+    type: Attribute
+    attribute: src
+rating:
+    css: '._3LWZlK'
+    type: Text
+number_of_reviews:
+    css: '._2_R_DZ span span'
+    type: Text
