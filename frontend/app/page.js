@@ -7,6 +7,8 @@ const App = () => {
     <div className="bg-[#000000]">
       <Navbar />
       <Home/>
+      <br />
+      <br />
       <PaginationComponent />
     </div>
   );
