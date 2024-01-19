@@ -1,8 +1,8 @@
-import Hero from "./(vaxadui)/sections/Hero";
+import Home from "./milind/Home";
 
 
-export default function Home() {
+export default function App() {
   return (
-    <Hero/>
+    <Home/>
   );
 }
