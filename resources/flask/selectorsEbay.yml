@@ -1,0 +1,16 @@
+name:
+    css: 'h1.x-item-title__mainTitle span'
+    type: Text
+price:
+    css: '.x-price-primary span.ux-textspans'
+    type: Text
+short_description:
+    css: '.x-item-condition-desc span.ux-textspans--ITALIC'
+    type: Text
+images:
+    css: 'div.ux-image-carousel-item img'
+    type: Attribute
+    attribute: src
+product_description:
+    css: '.x-item-condition-desc span.ux-textspans--ITALIC'
+    type: Text
