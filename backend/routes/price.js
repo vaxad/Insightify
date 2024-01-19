@@ -24,7 +24,7 @@ for(const item of js.items){
 console.log(urls)
 const result = []
 for (const url of urls){
-    const res = await fetch("http://127.0.0.1:5000/scrape",{
+    const res = await fetch("https://devquest-4t7w.onrender.com/scrape",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
