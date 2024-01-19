@@ -1,7 +1,7 @@
 import Navbar from "./ketan/Navbar";
 import PaginationComponent from "./ketan/Pagination";
+import Home from "./milind/Home"
 
-// Home component
 const App = () => {
   return (
     <div className="bg-[#000000]">
@@ -10,4 +10,5 @@ const App = () => {
       <PaginationComponent />
     </div>
   );
-export default Home;
+}
+export default App;

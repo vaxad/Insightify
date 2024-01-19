@@ -43,9 +43,7 @@ const Navbar = () => {
         <div>
           <button
             className="bg-[#191919] text-white flex p-2 rounded-full justify-center items-center pt-[0.875rem] pb-[0.875rem] pl-[0.875rem] pr-[0.875rem]"
-            id="nav-btn" onClick={() => {
-              console.log("clicked");
-            }}>
+            id="nav-btn">
             API Documentation
           </button>
         </div>
