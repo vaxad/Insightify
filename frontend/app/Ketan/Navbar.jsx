@@ -1,4 +1,4 @@
-import React from "react";
+"use client"
 import Link from "next/link";
 
 const Navbar = () => {
@@ -25,17 +25,17 @@ const Navbar = () => {
 
         <div>
           <ul className="flex space-x-4 ml-auto text-[#727272] ">
-            <li>
+            <li className="hover:text-white">
               <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link href="/products">Feed</Link>
+            <li className="hover:text-white">
+              <Link href="/feed">Feed</Link>
             </li>
-            <li>
-              <Link href="/about">Prices</Link>
+            <li className="hover:text-white">
+              <Link href="/prices">Prices</Link>
             </li>
-            <li>
-              <Link href="/about">API</Link>
+            <li className="hover:text-white">
+              <Link href="/api">API</Link>
             </li>
           </ul>
         </div>
@@ -43,7 +43,9 @@ const Navbar = () => {
         <div>
           <button
             className="bg-[#191919] text-white flex p-2 rounded-full justify-center items-center pt-[0.875rem] pb-[0.875rem] pl-[0.875rem] pr-[0.875rem]"
-            id="nav-btn">
+            id="nav-btn" onClick={() => {
+              console.log("clicked");
+            }}>
             API Documentation
           </button>
         </div>
