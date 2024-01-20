@@ -1,8 +1,16 @@
-import Hero from "./(vaxadui)/sections/Hero";
+import Navbar from "./ketan/Navbar";
+import PaginationComponent from "./ketan/Pagination";
+import ProductPage from "./product/[id]/page";
+import Home from "./milind/Home";
 
-
-export default function Home() {
+const App = () => {
   return (
-    <Hero/>
+    <div className="bg-[#000000]">
+      <Home />
+      <br />
+      <br />
+      <PaginationComponent />
+    </div>
   );
-}
+};
+export default App;

@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
+import { Oxygen } from "next/font/google";
 import "./globals.css";
-import Navbar from "./(vaxadui)/sections/Navbar";
+import Pinned from "./ketan/Pinned";
+import Navbar from "./ketan/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Oxygen({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -13,8 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar/>
-        {children}</body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
