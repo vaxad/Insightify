@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import Link from "next/link";
+import Pinned from "./Pinned";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#111] p-4" id="nav">
+    <nav id='nav' className="bg-[#111] p-4 z-50" id="nav">
       <div className="container mx-auto flex items-center [justify-content:space-between]">
         <Link href="/" className="">
           <div className="flex space-x-2 ml-2 flex-row">
@@ -24,7 +25,7 @@ const Navbar = () => {
         </Link>
 
         <div>
-          <ul className="flex space-x-4 ml-auto text-[#727272] ">
+          <ul className="hidden md:flex space-x-4 ml-auto text-[#727272]  ">
             <li className="hover:text-white">
               <Link href="/">Home</Link>
             </li>
@@ -41,11 +42,12 @@ const Navbar = () => {
         </div>
 
         <div>
-          <button
-            className="bg-[#191919] text-white flex p-2 rounded-full justify-center items-center pt-[0.875rem] pb-[0.875rem] pl-[0.875rem] pr-[0.875rem]"
+          {/* <button
+            className="bg-[#191919] text-white hidden md:flex p-2 rounded-full justify-center items-center pt-[0.875rem] pb-[0.875rem] pl-[0.875rem] pr-[0.875rem]"
             id="nav-btn">
             API Documentation
-          </button>
+          </button> */}
+          <Pinned/>
         </div>
       </div>
     </nav>

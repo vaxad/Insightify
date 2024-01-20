@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="px-2">
+    <div className="px-2 [isolation:isolate]">
       <div
         className="min-h-[90vh] text-center grid place-items-center overflow-clip"
         id="hero">
@@ -12,7 +12,7 @@ export default function Home() {
             <br />
             Don't Overpay!
           </h1>
-          <p className="text-[#686868] text-center text-lg mt-4 w-2/3 mb-12">
+          <p className="text-[hsl(0,0%,54%)] text-center text-lg mt-4 w-1/2 mb-12 ">
             Empowering informed purchasing decisions by providing a dynamic
             product price tracking and comparison tool across various e-commerce
             platforms.
@@ -47,7 +47,7 @@ export default function Home() {
           viewBox="0 0 504 454"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute -z-10 opacity-10">
+          className="absolute -z-10 opacity-[0.15]">
           <path
             d="M352.666 221.463L459.373 36.9917L502.911 62.1583L371.29 289.917L207.455 195.542L87.4101 403.167H503.666V453.5H0.333496V0.5H50.6668V366.423L189.083 126.333L352.666 221.463Z"
             fill="url(#paint0_linear_3_45)"

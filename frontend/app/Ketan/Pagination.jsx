@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -12,108 +12,29 @@ import ProductCard from "@/app/ketan/ProductCard";
 import Link from "next/link";
 
 const PaginationComponent = () => {
-  const products = [
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-    {
-      _id: { $oid: "65aa86a930ae586543485944" },
-      name: "REDMI Note 10 Pro (Dark Nebula, 128 GB) (6 GB RAM)",
-      price: "₹18,999",
-      createdAt: { $date: "2024-01-19T14:26:49.429Z" },
-      description: "Gaming phone with Super AMOLED display",
-      brand: "www.flipkart.com",
-      link: "https://www.flipkart.com/redmi-note-10-pro-dark-nebula-128-gb/p/itm4cfcbeb29b31c",
-      images: [
-        "https://rukminim2.flixcart.com/image/416/416/l0h1g280/mobile/p/h/g/-original-imagc9cqggcxkvhz.jpeg?q=70&crop=false",
-      ],
-      __v: 0,
-    },
-  ];
+  const [products, setProducts] = useState([]);
 
-  const productsPerPage = 6;
+  const getData = async (page) => {
+    const data = await fetch(`http://172.30.48.233:5000/api/price?p=${page}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const res = await data.json();
+    console.log(res);
+    // for(const item in res){
 
-  const totalPages = Math.ceil(products.length / productsPerPage);
+    // }
+    setProducts(res);
+  };
+
+  const productsPerPage = 25;
+
+  const totalPages = Math.ceil(1700 / productsPerPage);
 
   const getProductsForPage = (currentPage) => {
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    return products.slice(startIndex, endIndex);
+    getData(currentPage);
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -122,16 +43,91 @@ const PaginationComponent = () => {
     setCurrentPage(newPage);
   };
 
+  useEffect(() => {
+    getData(currentPage);
+  }, [currentPage]);
+
+  const renderPaginationLinks = () => {
+    const maxPagesToShow = 5; // Adjust this based on your preference
+
+    let pagesToRender = [];
+
+    if (totalPages <= maxPagesToShow) {
+      // If total pages are less than or equal to maxPagesToShow, render all pages
+      pagesToRender = Array.from({ length: totalPages }, (_, i) => (
+        <PaginationItem key={i + 1}>
+          <PaginationLink onClick={() => handlePageChange(i + 1)} page={i + 1}>
+            {i + 1}
+          </PaginationLink>
+        </PaginationItem>
+      ));
+    } else {
+      // Render pages with ellipsis
+      const startPage = Math.max(
+        1,
+        currentPage - Math.floor(maxPagesToShow / 2)
+      );
+      const endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+
+      for (let i = startPage; i <= endPage; i++) {
+        pagesToRender.push(
+          <PaginationItem key={i}>
+            <PaginationLink onClick={() => handlePageChange(i)} page={i}>
+              {i}
+            </PaginationLink>
+          </PaginationItem>
+        );
+      }
+
+      if (startPage > 1) {
+        pagesToRender.unshift(
+          <PaginationItem key={1}>
+            <PaginationLink onClick={() => handlePageChange(1)} page={1}>
+              1
+            </PaginationLink>
+          </PaginationItem>
+        );
+        if (startPage > 2) {
+          pagesToRender.unshift(
+            <PaginationItem key="ellipsis-start">
+              <span className="text-white">...</span>
+            </PaginationItem>
+          );
+        }
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          pagesToRender.push(
+            <PaginationItem key="ellipsis-end">
+              <span className="text-white">...</span>
+            </PaginationItem>
+          );
+        }
+        pagesToRender.push(
+          <PaginationItem key={totalPages}>
+            <PaginationLink
+              onClick={() => handlePageChange(totalPages)}
+              page={totalPages}>
+              {totalPages}
+            </PaginationLink>
+          </PaginationItem>
+        );
+      }
+    }
+
+    return pagesToRender;
+  };
+
   return (
-    
     <Pagination>
       <PaginationContent className="text-white flex flex-col px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-3/4 rounded mt-4">
-          {getProductsForPage(currentPage)?.map((product) => (
+        <div id='grid' className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  rounded mt-4">
+          {products.map((product) => (
             <ProductCard item={product} key={product.name} />
           ))}
         </div>
-        <div className=" flex flex-row py-6 ">
+        <div className="flex flex-row py-6 ">
           <PaginationItem>
             <PaginationPrevious
               onClick={() =>
@@ -141,15 +137,7 @@ const PaginationComponent = () => {
               }
             />
           </PaginationItem>
-          {Array.from({ length: totalPages }, (_, i) => (
-            <PaginationItem key={i + 1}>
-              <PaginationLink
-                onClick={() => handlePageChange(i + 1)}
-                page={i + 1}>
-                {i + 1}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
+          {renderPaginationLinks()}
           <PaginationItem>
             <PaginationNext
               onClick={() =>

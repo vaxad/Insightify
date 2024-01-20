@@ -130,3 +130,10 @@
   transform: translateY(-50%);
 }
 
+#nav {
+  position: relative ;
+}
+
+#grid {
+  grid-auto-rows: 1fr; 
+}
