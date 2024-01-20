@@ -107,7 +107,7 @@
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   color: transparent;
-
+  
   font-size: clamp(3rem, 5.1vw - 1px, 6.5rem); 
 }
 
