@@ -135,6 +135,8 @@ async function sendMail({ email, productName, userName, currentPrice, productLin
     });
   }
 const f3 = async(pid) => {
+    try{
+        console.log(pid)
     const pdt = await Product.findById(pid)
     const pdts = await Product.find({name:pdt.name}).sort({createdAt:-1})
     const userpdts = await UserProduct.find({productId:pid})
@@ -144,6 +146,9 @@ const f3 = async(pid) => {
             sendMail({email:userpdt.email,userName:user.name, productName:pdts[0].name, currentPrice:pdts[0].price, productLink:pdts[0].link, reminderPrice:userpdt.price})
         }
     }
+}catch(err){
+
+}
 }
 router.get('/test', async (req, res) => {
     try {
@@ -247,6 +252,16 @@ router.post('/', fetchuser, [
         const { productId, price } = req.body;
         const user = await User.findById(req.user.id).select("-password");
         const userpdt = await UserProduct.create({ email: user.email, productId: productId, price: parseFloat(price) })
+        return res.json(userpdt);
+    } catch (error) {
+        return res.status(500).json({ error });
+    }
+})
+
+router.post('/mail', fetchuser, [
+], async (req, res) => {
+    try {
+        const resl = await sendMail({email:"prabhuvrd@gmail.com",productName:"iPhone 12",userName:"Varad",currentPrice:"45000",productLink:"https://www.amazon.in/New-Apple-iPhone-12-256GB/dp/B08L5W5Z9Q",reminderPrice:"47000"})
         return res.json(userpdt);
     } catch (error) {
         return res.status(500).json({ error });

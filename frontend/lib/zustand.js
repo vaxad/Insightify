@@ -4,6 +4,8 @@ const store = create((set) => ({
   cart: [],
   add: (item) => set((state) => ({ cart: state.cart.concat([item]) })),
   sub: (item) => set((state) => ({ cart: remove(item, state.cart) })),
+  arr: [],
+  setArr: (item) => set((state) => ({ arr: item })),
 }));
 
 const remove = (item, arr) => {
