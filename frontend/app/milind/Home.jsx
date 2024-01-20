@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Home() {
   return (
@@ -6,19 +6,19 @@ export default function Home() {
       <div
         className="min-h-[90vh] text-center grid place-items-center overflow-clip"
         id="hero">
-        <div>
+        <div className=" flex w-full flex-col justify-center items-center">
           <h1 className="p-2 font-bold" id="heading">
             Track the Price$
             <br />
             Don't Overpay!
           </h1>
-          <p className="text-[#686868] text-center text-lg mt-4 mb-12">
+          <p className="text-[#686868] text-center text-lg mt-4 w-2/3 mb-12">
             Empowering informed purchasing decisions by providing a dynamic
             product price tracking and comparison tool across various e-commerce
             platforms.
           </p>
 
-          <div className=" relative w-max mx-auto">
+          <div className=" relative w-max mx-auto gap-2">
             <input
               type="search"
               name=""

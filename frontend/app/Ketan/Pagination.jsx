@@ -9,6 +9,7 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination";
 import ProductCard from "@/app/ketan/ProductCard";
+import Link from "next/link";
 
 const PaginationComponent = () => {
   const products = [
@@ -122,6 +123,7 @@ const PaginationComponent = () => {
   };
 
   return (
+    
     <Pagination>
       <PaginationContent className="text-white flex flex-col px-6 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-3/4 rounded mt-4">

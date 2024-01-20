@@ -1,5 +1,6 @@
 import Navbar from "./ketan/Navbar";
 import PaginationComponent from "./ketan/Pagination";
+import ProductPage from "./product/page";
 import Home from "./milind/Home"
 
 const App = () => {
