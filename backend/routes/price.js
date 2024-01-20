@@ -154,6 +154,7 @@ router.get('/test', async (req, res) => {
         res.status(500).json({ error: "Internal server error" })
     }
 })
+
 //ROUTE 1: fetch all notes using: GET '/api/notes/fetch'
 router.get('/find/:item', async (req, res) => {
     try {
