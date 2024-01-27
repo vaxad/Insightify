@@ -3,9 +3,10 @@
 import store from "@/lib/zustand";
 
 export default function Home() {
-  const {setArr} = store()
+  const {setArr, setLoading} = store()
   const handleSubmit=async()=>{
     console.log('clicked');
+    setLoading(true)
     const text = document.getElementById('search').value;
     const data = await fetch(`http://localhost:5000/api/price/find/${text}`, {
       method: "GET",
@@ -16,6 +17,7 @@ export default function Home() {
     const res = await data.json();
     console.log(res);
     setArr(res);
+    setLoading(false)
   }
   return (
     <div className="px-2 [isolation:isolate]">

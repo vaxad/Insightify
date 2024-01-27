@@ -258,7 +258,7 @@ router.post('/', fetchuser, [
     }
 })
 
-router.post('/mail', fetchuser, [
+router.post('/mail', [
 ], async (req, res) => {
     try {
         const resl = await sendMail({email:"prabhuvrd@gmail.com",productName:"iPhone 12",userName:"Varad",currentPrice:"45000",productLink:"https://www.amazon.in/New-Apple-iPhone-12-256GB/dp/B08L5W5Z9Q",reminderPrice:"47000"})

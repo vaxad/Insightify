@@ -13,9 +13,10 @@ import store from "@/lib/zustand";
 import Loading from "./Loading";
 
 const PaginationComponent = () => {
-  const [products, setProducts] = useState([]);
-  const { setArr, arr } = store();
+  const [products, setProducts] = useState(false);
+  const { setArr, arr, loading } = store();
   const getData = async (page) => {
+    setProducts(false)
     const data = await fetch(`http://localhost:5000/api/price?p=${page}`, {
       method: "GET",
       headers: {
@@ -24,7 +25,9 @@ const PaginationComponent = () => {
     });
     const res = await data.json();
     console.log(res);
-setArr(res);  };
+setArr(res);
+setProducts(true)  
+};
 
   const productsPerPage = 25;
 
@@ -44,11 +47,6 @@ setArr(res);  };
     getData(currentPage);
   }, [currentPage]);
 
-  useEffect(() => {
-    if(arr.length===0){
-      getData(currentPage);
-    }
-  }, [arr]);
 
   const renderPaginationLinks = () => {
     const maxPagesToShow = 5; // Adjust this based on your preference
@@ -126,9 +124,9 @@ setArr(res);  };
     <Pagination>
       <PaginationContent className="text-white flex flex-col px-6 md:px-12 lg:px-24">
         <div id='grid' className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  rounded mt-4">
-          {arr?arr.length!==0?arr.map((product) => (
+          {!loading?products?arr.length!==0?arr.map((product) => (
             <ProductCard item={product} key={product._id} />
-          )):<Loading/>:<Loading></Loading>}
+          )):<div className=" col-span-3"><Loading/></div>:<div className=" col-span-3"><Loading></Loading></div>:<div className=" col-span-3"><Loading></Loading></div>}
         </div>
         <div className="flex flex-row py-6 ">
           <PaginationItem>
