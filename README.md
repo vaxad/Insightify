@@ -1,5 +1,5 @@
 8
-![image](https://res.cloudinary.com/db670bhmc/image/upload/v1707139560/fx3xa5fykowlkypy3nzv.jpg)
+![image](https://res.cloudinary.com/db670bhmc/image/upload/v1707142191/lycardgg3exjlvv8bwq2.jpg)
 
 # Insightify: Your Real-time Price Comparison Assistant
 
