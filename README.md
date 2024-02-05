@@ -1,4 +1,6 @@
 8
+![image](https://res.cloudinary.com/db670bhmc/image/upload/v1707139560/fx3xa5fykowlkypy3nzv.jpg)
+
 # Insightify: Your Real-time Price Comparison Assistant
 
 Welcome to Insightify, your go-to platform for real-time price comparison, intelligent product tracking, and insightful price trend analysis. Insightify empowers users to make informed purchasing decisions by providing a seamless experience for comparing prices across different marketplaces, receiving price drop alerts, and exploring price fluctuation graphs.
